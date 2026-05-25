@@ -262,6 +262,79 @@ body {
 }
 .tl-link:hover { background:var(--orange); color:#fff; }
 
+/* HOBBIES */
+.hobbies { background:var(--bg); border-top:1px solid var(--border); }
+.hobby-lead {
+  font-size:.88rem; color:var(--text2); line-height:1.95;
+  margin-bottom:36px; max-width:560px;
+}
+.hobby-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:14px; margin-bottom:48px;
+}
+.hobby-card {
+  background:var(--white); border:1.5px solid var(--border); border-radius:16px;
+  padding:22px 20px; transition:transform .2s,border-color .2s,box-shadow .2s;
+  position:relative; overflow:hidden;
+}
+.hobby-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+}
+.hobby-card.c-o::before { background:var(--orange); }
+.hobby-card.c-b::before { background:var(--blue); }
+.hobby-card.c-g::before { background:var(--green); }
+.hobby-card.c-p::before { background:var(--purple); }
+.hobby-card.c-y::before { background:var(--yellow); }
+.hobby-card:hover { transform:translateY(-4px); border-color:rgba(0,0,0,.13); box-shadow:0 12px 28px rgba(0,0,0,.05); }
+.hobby-num {
+  font-family:'Space Mono',monospace; font-size:.6rem;
+  color:var(--text3); letter-spacing:.18em; margin-bottom:10px;
+}
+.hobby-name { font-size:1rem; font-weight:900; color:var(--black); margin-bottom:3px; letter-spacing:.01em; }
+.hobby-en {
+  font-family:'Space Mono',monospace; font-size:.62rem;
+  color:var(--text3); letter-spacing:.08em;
+}
+
+/* MANGA block */
+.manga-block {
+  background:var(--white); border:1.5px solid var(--border); border-radius:24px;
+  padding:36px 32px; position:relative; overflow:hidden;
+}
+.manga-block::before {
+  content:''; position:absolute; top:-100px; right:-80px;
+  width:280px; height:280px; border-radius:50%;
+  background:radial-gradient(circle,rgba(232,115,42,.07),transparent 70%);
+  pointer-events:none;
+}
+.manga-label {
+  font-family:'Space Mono',monospace; font-size:.62rem;
+  color:var(--orange); letter-spacing:.22em; text-transform:uppercase; margin-bottom:10px;
+}
+.manga-head { font-size:1.25rem; font-weight:900; color:var(--black); margin-bottom:22px; position:relative; z-index:1; }
+.manga-titles {
+  display:flex; flex-wrap:wrap; align-items:baseline;
+  gap:6px 14px; line-height:1.55;
+  font-size:clamp(1.1rem,2.6vw,1.7rem); font-weight:900;
+  position:relative; z-index:1;
+}
+.manga-titles .t { color:var(--black); white-space:nowrap; }
+.manga-titles .t:nth-of-type(5n+1) { color:var(--orange); }
+.manga-titles .t:nth-of-type(5n+2) { color:var(--blue); }
+.manga-titles .t:nth-of-type(5n+3) { color:var(--green); }
+.manga-titles .t:nth-of-type(5n+4) { color:var(--purple); }
+.manga-titles .sep { color:var(--text3); font-weight:300; font-size:.75em; }
+.manga-note {
+  font-size:.78rem; color:var(--text3); margin-top:22px;
+  font-family:'Space Mono',monospace; letter-spacing:.04em; position:relative; z-index:1;
+}
+
+@media (max-width:768px) {
+  .hobby-grid { grid-template-columns:repeat(2,1fr); gap:10px; }
+  .hobby-card { padding:18px 16px; }
+  .manga-block { padding:28px 22px; }
+}
+
 /* CONTACT */
 .contact-sec {
   background:var(--black); padding:88px 6%;
@@ -335,18 +408,20 @@ body {
 <nav class="nav">
   <a href="#top" class="nav-name">HARUTA.K</a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#timeline">Timeline</a></li>
-    <li><a href="#contact" class="nav-cta">Contact</a></li>
+    <li><a href="#about">自己紹介</a></li>
+    <li><a href="#projects">活動</a></li>
+    <li><a href="#timeline">経歴</a></li>
+    <li><a href="#hobbies">趣味</a></li>
+    <li><a href="#contact" class="nav-cta">連絡先</a></li>
   </ul>
   <button class="nav-burger" id="burger"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-nav" id="mobileNav">
-  <a href="#about">About</a>
-  <a href="#projects">Projects</a>
-  <a href="#timeline">Timeline</a>
-  <a href="#contact" class="cta">Contact</a>
+  <a href="#about">自己紹介</a>
+  <a href="#projects">活動</a>
+  <a href="#timeline">経歴</a>
+  <a href="#hobbies">趣味</a>
+  <a href="#contact" class="cta">連絡先</a>
 </div>
 
 <!-- HERO -->
@@ -607,6 +682,97 @@ body {
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- HOBBIES -->
+<section class="section hobbies" id="hobbies">
+  <div class="section-inner">
+    <p class="section-label">Hobbies</p>
+    <h2 class="section-title">趣味</h2>
+    <p class="hobby-lead">
+      仕事も活動も全力でやるけど、好きなこともたくさん。<br>
+      ジャンルがバラバラなのは、いろんな世界を覗くのが楽しいから。
+    </p>
+
+    <div class="hobby-grid">
+      <div class="hobby-card c-o">
+        <div class="hobby-num">01</div>
+        <div class="hobby-name">F1</div>
+        <div class="hobby-en">Formula 1</div>
+      </div>
+      <div class="hobby-card c-b">
+        <div class="hobby-num">02</div>
+        <div class="hobby-name">アニメ</div>
+        <div class="hobby-en">Anime</div>
+      </div>
+      <div class="hobby-card c-g">
+        <div class="hobby-num">03</div>
+        <div class="hobby-name">漫画</div>
+        <div class="hobby-en">Manga</div>
+      </div>
+      <div class="hobby-card c-p">
+        <div class="hobby-num">04</div>
+        <div class="hobby-name">ゲーム</div>
+        <div class="hobby-en">Games</div>
+      </div>
+      <div class="hobby-card c-y">
+        <div class="hobby-num">05</div>
+        <div class="hobby-name">ドラマ</div>
+        <div class="hobby-en">Drama</div>
+      </div>
+      <div class="hobby-card c-o">
+        <div class="hobby-num">06</div>
+        <div class="hobby-name">K-POP</div>
+        <div class="hobby-en">K-POP</div>
+      </div>
+      <div class="hobby-card c-b">
+        <div class="hobby-num">07</div>
+        <div class="hobby-name">日本のアイドル</div>
+        <div class="hobby-en">J-Idol</div>
+      </div>
+      <div class="hobby-card c-g">
+        <div class="hobby-num">08</div>
+        <div class="hobby-name">音楽</div>
+        <div class="hobby-en">Music</div>
+      </div>
+      <div class="hobby-card c-p">
+        <div class="hobby-num">09</div>
+        <div class="hobby-name">時計</div>
+        <div class="hobby-en">Watches</div>
+      </div>
+      <div class="hobby-card c-y">
+        <div class="hobby-num">10</div>
+        <div class="hobby-name">ガジェット</div>
+        <div class="hobby-en">Gadgets</div>
+      </div>
+      <div class="hobby-card c-o">
+        <div class="hobby-num">11</div>
+        <div class="hobby-name">料理</div>
+        <div class="hobby-en">Cooking</div>
+      </div>
+      <div class="hobby-card c-b">
+        <div class="hobby-num">12</div>
+        <div class="hobby-name">旅行</div>
+        <div class="hobby-en">Travel</div>
+      </div>
+    </div>
+
+    <div class="manga-block">
+      <div class="manga-label">Favorite Titles</div>
+      <h3 class="manga-head">好きなアニメ・漫画</h3>
+      <div class="manga-titles">
+        <span class="t">ハイキュー</span><span class="sep">/</span>
+        <span class="t">キングダム</span><span class="sep">/</span>
+        <span class="t">進撃の巨人</span><span class="sep">/</span>
+        <span class="t">ワンピース</span><span class="sep">/</span>
+        <span class="t">ナルト</span><span class="sep">/</span>
+        <span class="t">JIN -仁-</span><span class="sep">/</span>
+        <span class="t">スラムダンク</span><span class="sep">/</span>
+        <span class="t">ホリミヤ</span>
+      </div>
+      <p class="manga-note">— and more.</p>
     </div>
   </div>
 </section>
