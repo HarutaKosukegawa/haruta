@@ -406,12 +406,13 @@ body {
 .media-sec { background:var(--white); border-top:1px solid var(--border); }
 .media-lead {
   font-size:.95rem; color:var(--text2); line-height:2; max-width:680px;
-  margin:0 0 56px; text-align:center; margin-left:auto; margin-right:auto;
+  margin:0 auto 56px; text-align:center;
 }
 .media-cat-title {
-  font-size:1.1rem; font-weight:900; margin:48px 0 24px;
+  font-size:1.15rem; font-weight:900; margin:56px 0 24px;
   letter-spacing:.02em; display:flex; align-items:center; gap:14px;
 }
+.media-cat-title:first-of-type { margin-top:0; }
 .media-cat-title::before {
   content:''; display:inline-block; width:32px; height:4px; border-radius:2px;
 }
@@ -422,41 +423,40 @@ body {
 .media-cat-b { color:var(--blue); }
 .media-cat-p { color:var(--purple); }
 .media-grid {
-  display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
 }
 .media-card {
-  background:var(--bg); border:1px solid var(--border); border-radius:20px;
-  overflow:hidden; display:flex; flex-direction:column;
-  transition:transform .25s ease, box-shadow .25s ease;
+  position:relative;
+  background:var(--bg); border:1px solid var(--border); border-radius:18px;
+  padding:24px 24px 22px 28px;
+  display:flex; flex-direction:column;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  overflow:hidden;
 }
-.media-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,.08); }
-.media-img {
-  width:100%; aspect-ratio:16/10; background:#eee;
-  display:flex; align-items:center; justify-content:center;
-  font-family:'Space Mono',monospace; font-size:.72rem; color:#fff;
-  letter-spacing:.18em; text-transform:uppercase; font-weight:700;
+.media-card::before {
+  content:''; position:absolute; left:0; top:0; bottom:0;
+  width:5px; background:var(--orange);
 }
-.media-img img { width:100%; height:100%; object-fit:cover; }
-.media-ph-o { background:linear-gradient(135deg,#E8732A,#FFB05E); }
-.media-ph-b { background:linear-gradient(135deg,#2E6FD4,#6FA0E8); }
-.media-ph-g { background:linear-gradient(135deg,#2ABE6F,#7BE0A6); }
-.media-ph-p { background:linear-gradient(135deg,#9B4FD4,#C99BE8); }
-.media-ph-y { background:linear-gradient(135deg,#FFD600,#FFEA70); color:#111; }
-.media-ph-k { background:linear-gradient(135deg,#111,#444); }
-.media-body { padding:22px 22px 24px; flex:1; display:flex; flex-direction:column; }
+.media-card.cat-b::before { background:var(--blue); }
+.media-card.cat-p::before { background:var(--purple); }
+.media-card.cat-g::before { background:var(--green); }
+.media-card.cat-y::before { background:var(--yellow); }
+.media-card.cat-k::before { background:var(--black); }
+.media-card:hover { transform:translateY(-3px); box-shadow:0 12px 32px rgba(0,0,0,.07); border-color:rgba(0,0,0,.12); }
 .media-year {
-  font-family:'Space Mono',monospace; font-size:.7rem;
-  color:var(--text3); margin-bottom:6px; letter-spacing:.1em;
+  font-family:'Space Mono',monospace; font-size:.72rem;
+  color:var(--text3); margin-bottom:6px; letter-spacing:.12em; font-weight:700;
 }
 .media-name {
-  font-size:.78rem; font-weight:800; color:var(--text2);
-  letter-spacing:.04em; text-transform:uppercase; margin-bottom:6px;
+  font-size:.74rem; font-weight:800; color:var(--text2);
+  letter-spacing:.08em; text-transform:uppercase; margin-bottom:8px;
 }
-.media-title { font-size:1.02rem; font-weight:800; line-height:1.45; margin-bottom:10px; }
-.media-desc { font-size:.85rem; color:var(--text2); line-height:1.75; }
+.media-title { font-size:1.04rem; font-weight:800; line-height:1.5; margin-bottom:10px; }
+.media-desc { font-size:.85rem; color:var(--text2); line-height:1.75; flex:1; }
 .media-link {
-  margin-top:14px; font-family:'Space Mono',monospace; font-size:.72rem;
+  margin-top:14px; font-family:'Space Mono',monospace; font-size:.7rem;
   color:var(--orange); text-decoration:none; font-weight:700;
+  align-self:flex-start; letter-spacing:.06em;
 }
 .media-link:hover { text-decoration:underline; }
 @media (max-width:900px) {
@@ -767,7 +767,6 @@ body {
     <div class="media-grid">
 
       <article class="media-card">
-        <div class="media-img media-ph media-ph-o">TBS / 2020</div>
         <div class="media-body">
           <div class="media-year">2020</div>
           <div class="media-name">TBSテレビ</div>
@@ -777,7 +776,6 @@ body {
       </article>
 
       <article class="media-card">
-        <div class="media-img media-ph media-ph-y">STEEZ / 2025</div>
         <div class="media-body">
           <div class="media-year">2025</div>
           <div class="media-name">Steez</div>
@@ -787,7 +785,6 @@ body {
       </article>
 
       <article class="media-card">
-        <div class="media-img media-ph media-ph-b">MyNavi / 2019</div>
         <div class="media-body">
           <div class="media-year">2019</div>
           <div class="media-name">マイナビ 中学受験ナビ</div>
@@ -798,7 +795,6 @@ body {
       </article>
 
       <article class="media-card">
-        <div class="media-img media-ph media-ph-k">毎日新聞 / 2019</div>
         <div class="media-body">
           <div class="media-year">2019</div>
           <div class="media-name">毎日新聞</div>
@@ -809,7 +805,6 @@ body {
       </article>
 
       <article class="media-card">
-        <div class="media-img media-ph media-ph-g">impress / 2018</div>
         <div class="media-body">
           <div class="media-year">2018</div>
           <div class="media-name">こどもとIT (Impress Watch)</div>
@@ -820,7 +815,6 @@ body {
       </article>
 
       <article class="media-card">
-        <div class="media-img media-ph media-ph-p">Mother Quest / 2021</div>
         <div class="media-body">
           <div class="media-year">2021</div>
           <div class="media-name">Mother Quest</div>
@@ -835,8 +829,7 @@ body {
     <h3 class="media-cat-title media-cat-b">登壇・ピッチ</h3>
     <div class="media-grid">
 
-      <article class="media-card">
-        <div class="media-img media-ph media-ph-o">QWS / 2020</div>
+      <article class="media-card cat-b">
         <div class="media-body">
           <div class="media-year">2020</div>
           <div class="media-name">渋谷QWS</div>
@@ -846,8 +839,7 @@ body {
         </div>
       </article>
 
-      <article class="media-card">
-        <div class="media-img media-ph media-ph-b">JCI / 2020</div>
+      <article class="media-card cat-b">
         <div class="media-body">
           <div class="media-year">2020</div>
           <div class="media-name">JCI World Congress 横浜</div>
@@ -856,8 +848,7 @@ body {
         </div>
       </article>
 
-      <article class="media-card">
-        <div class="media-img media-ph media-ph-p">孫財団 / 2020</div>
+      <article class="media-card cat-b">
         <div class="media-body">
           <div class="media-year">2020</div>
           <div class="media-name">孫正義育英財団</div>
@@ -866,8 +857,7 @@ body {
         </div>
       </article>
 
-      <article class="media-card">
-        <div class="media-img media-ph media-ph-g">JIAL / 2023</div>
+      <article class="media-card cat-b">
         <div class="media-body">
           <div class="media-year">2023</div>
           <div class="media-name">日本アクションラーニング協会</div>
@@ -877,8 +867,7 @@ body {
         </div>
       </article>
 
-      <article class="media-card">
-        <div class="media-img media-ph media-ph-y">テレ朝SDGs / 2023</div>
+      <article class="media-card cat-b">
         <div class="media-body">
           <div class="media-year">2023</div>
           <div class="media-name">SOZOW FES / テレビ朝日</div>
@@ -887,8 +876,7 @@ body {
         </div>
       </article>
 
-      <article class="media-card">
-        <div class="media-img media-ph media-ph-o">LITALICO / 2025</div>
+      <article class="media-card cat-b">
         <div class="media-body">
           <div class="media-year">2025</div>
           <div class="media-name">LITALICOワンダー</div>
@@ -897,8 +885,7 @@ body {
         </div>
       </article>
 
-      <article class="media-card">
-        <div class="media-img media-ph media-ph-p">麗澤大学 / 2025</div>
+      <article class="media-card cat-b">
         <div class="media-body">
           <div class="media-year">2025</div>
           <div class="media-name">麗澤大学</div>
@@ -907,8 +894,7 @@ body {
         </div>
       </article>
 
-      <article class="media-card">
-        <div class="media-img media-ph media-ph-b">N高 / 2026</div>
+      <article class="media-card cat-b">
         <div class="media-body">
           <div class="media-year">2026</div>
           <div class="media-name">N高等学校 起業部</div>
@@ -917,8 +903,7 @@ body {
         </div>
       </article>
 
-      <article class="media-card">
-        <div class="media-img media-ph media-ph-g">Recruit / 2026</div>
+      <article class="media-card cat-b">
         <div class="media-body">
           <div class="media-year">2026</div>
           <div class="media-name">株式会社リクルート</div>
